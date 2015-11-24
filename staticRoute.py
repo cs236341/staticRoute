@@ -28,7 +28,8 @@ def run():
     
     os.system("rm -f  /tmp/*.pid logs/*")
     os.system("mn -c >/dev/null 2>&1")
-    os.system("killall -9 zebra ripd > /dev/null 2>&1")
+    os.system("killall -9 zebra > /dev/null 2>&1")
+    os.system("/etc/init.d/quagga restart")
 
     topo = StaticRouteTopo()
     net = Mininet( topo=topo )
